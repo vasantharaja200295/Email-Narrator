@@ -1,0 +1,77 @@
+MDScreen:
+    name:"main"
+    MDFloatLayout:
+        md_bg_color:1,1,1,1
+        MDLabel:
+            text:"Email-Narrator"
+            halign:"center"
+            font_size:"20sp"
+            font_name:"Poppins-SemiBold.ttf"
+            pos_hint:{"center_x":.3,"center_y":.95}
+
+        MDLabel:
+            text:"Logged in as."
+            halign:"center"
+            font_size:"14sp"
+            font_name:"Poppins-Regular.ttf"
+            pos_hint:{"center_x":.2,"center_y":.85}
+
+        MDLabel:
+            id:user_email
+            text:""
+            halign:"center"
+            font_size:"13sp"
+            font_name:"Poppins-Medium.ttf"
+            pos_hint:{"center_x":.5,"center_y":.8}
+            theme_style:"Custom"
+            multiline:True
+            color:231/255,76/255,60/255,1
+
+        MDLabel:
+            text:"Total Unread Messages"
+            halign:"center"
+            font_size:"20sp"
+            font_name:"Poppins-Medium.ttf"
+            pos_hint:{"center_x":.5,"center_y":.7}
+
+        MDLabel:
+            id:total_msg
+            text:"0"
+            halign:"center"
+            font_size:"32sp"
+            font_name:"Poppins-Medium.ttf"
+            pos_hint:{"center_x":.5,"center_y":.64}
+            theme_style:"Custom"
+            color:231/255,76/255,60/255,1
+
+        MDFlatButton:
+            text:"Log out"
+            size_hint:.35,.06
+            pos_hint:{"center_x":.5, "center_y": .5}
+            font_name:"Poppins-Regular.ttf"
+            font_size:"14sp"
+            color:231/255,76/255,60/255,1
+            border_radius:[10,10,10,10]
+            on_press:app.logoff()
+
+        MDIconButton:
+            id:mute_btn
+            icon:"volume-high"
+            pos_hint:{"center_x":.88, "center_y": .95}
+            theme_text_color:"Custom"
+            color:231/255,76/255,60/255,1
+            font_size:"30sp"
+            on_press:app.mute()
+
+        MDSeparator:
+            size_hint:.9,.002
+            pos_hint:{"center_x":.5, "center_y": .15}
+            color:231/255,76/255,60/255,1
+
+        MDLabel:
+            text:"Email Narrator service is running."
+            halign:"center"
+            font_size:"16sp"
+            font_name:"Poppins-Medium.ttf"
+            pos_hint:{"center_x":.5,"center_y":.1}
+            theme_text_color:"Hint"

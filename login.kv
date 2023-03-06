@@ -1,0 +1,135 @@
+MDScreen:
+    name:"login"
+    MDFloatLayout:
+        md_bg_color:1,1,1,1
+        Image:
+            id:appicon
+            source:"./appicon.png"
+            opacity:0
+            pos_hint:{"center_x":.5,"center_y":.6}
+        MDLabel:
+            id:apptitle
+            text:"Email-Narrator"
+            halign:"center"
+            font_size:"25sp"
+            font_name:"Poppins-SemiBold.ttf"
+            opacity:0
+            pos_hint:{"center_x":.5,"center_y":.5}
+
+        MDLabel:
+            id:signin_text
+            text:"Sign in"
+            halign:"center"
+            font_size:"22sp"
+            font_name:"Poppins-Medium.ttf"
+            opacity:0
+            pos_hint:{"center_x":.5,"center_y":.6}
+
+        MDSeparator:
+            id:login_sep
+            md_bg_color:231/255,76/255,60/255,1
+            pos_hint:{"center_x":.5,"center_y":.68}
+            size_hint:.9,.001
+            opacity:0
+
+        MDCard:
+            id:email_container
+            size_hint:.9,.07
+            pos_hint:{"center_x":.5, "center_y": .46}
+            elevation:2
+            opacity:0
+            canvas:
+                Color:
+                    rgb:240/255, 240/255, 240/255, 1
+                RoundedRectangle:
+                    size:self.size
+                    pos:self.pos
+                    radius:[10,10,10,10]
+            TextInput:
+                id:email_id
+                hint_text:"Email"
+                hint_text_color:120/255, 120/255, 120/255, 1
+                size_hint:1, None
+                pos_hint:{"center_x":.5, "center_y":.5}
+                font_size:"16sp"
+                font_name:"Poppins-Regular.ttf"
+                height:self.minimum_height
+                multiline:False
+                background_color:0,0,0,0
+                foreground_color:100/255, 100/255, 100/255, 1
+                cursor_color:231/255,76/255,60/255,1
+                cursor_width:"2sp"
+        MDCard:
+            id:password_container
+            size_hint:.9,.07
+            pos_hint:{"center_x":.5, "center_y": .4}
+            elevation:2
+            opacity:0
+            canvas:
+                Color:
+                    rgb:240/255, 240/255, 240/255, 1
+                RoundedRectangle:
+                    size:self.size
+                    pos:self.pos
+                    radius:[10,10,10,10]
+            TextInput:
+                id:password_text
+                hint_text:"Password"
+                hint_text_color:120/255, 120/255, 120/255, 1
+                size_hint:1, None
+                pos_hint:{"center_x":.5, "center_y":.5}
+                font_size:"16sp"
+                height:self.minimum_height
+                font_name:"Poppins-Regular.ttf"
+                multiline:False
+                password:True
+                background_color:0,0,0,0
+                foreground_color:100/255, 100/255, 100/255, 1
+                cursor_color:231/255,76/255,60/255,1
+                cursor_width:"2sp"
+
+        MDRaisedButton:
+            id:signin_btn
+            text:"Sign in"
+            size_hint:.35,.06
+            pos_hint:{"center_x":.75, "center_y": .25}
+            md_bg_color:231/255,76/255,60/255,1
+            font_name:"Poppins-Medium.ttf"
+            font_size:"16sp"
+            opacity:0
+            border_radius:[10,10,10,10]
+            elevation:2
+            on_press:app.login(email=email_id.text,pwd=password_text.text)
+
+        MDRaisedButton:
+            id:google_signin
+            text:"Google"
+            size_hint:.35,.06
+            pos_hint:{"center_x":.25, "center_y": .25}
+            md_bg_color:231/255,76/255,60/255,1
+            font_name:"Poppins-Medium.ttf"
+            font_size:"16sp"
+            opacity:0
+            border_radius:[10,10,10,10]
+            elevation:2
+
+        MDCheckbox:
+            id:auto_log_checkbox
+            size_hint: None, None
+            size: "48dp", "48dp"
+            opacity:0
+            pos_hint: {'center_x': .13, 'center_y': .15}
+            color:231/255,76/255,60/255,1
+            on_active:
+                app.remember_me = True if not app.remember_me else False
+                print("remember_me:",app.remember_me)
+
+        MDLabel:
+            id:auto_log_text
+            text:"Remember me"
+            halign:"left"
+            font_size:"12sp"
+            font_name:"Poppins-Medium.ttf"
+            opacity:0
+            pos_hint:{"center_x":.7,"center_y":.15}
+
