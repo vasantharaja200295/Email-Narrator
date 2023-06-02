@@ -1,0 +1,6 @@
+{
+    "name": "Email Narrator",
+    "des": "Simple email narrator app",
+    "lang": "Python",
+    "topics":["kivy-Md", "Mobile and Desktop app", "Python", "Text to Speech"]
+}
